@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Quzic</string>
+    <string name="first_string">Первая строка, Первая строка, Первая строка</string>
+    <string name="second_string">Вторая строка</string>
+    <string name="third_string">Третья строка</string>
+    <string name="user_name">Пользователь</string>
+    <string name="user_password">Пароль</string>
+    <string name="enter_user_name_tooltip">Введите имя пользователя</string>
+    <string name="system_enter_title">Вход в систему</string>
+    <string name="enter_name_label">Введите имя</string>
+    <string name="enter_password_label">Введите пароль</string>
+    <string name="enter_button_text">Войти</string>
+    <string name="registration_button_text">Регистрация</string>
+</resources>
