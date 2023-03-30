@@ -21,7 +21,8 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 //                    HomeScreen()
-                    LoginScreen()
+//                    LoginScreen()
+                    MyQuizzesScreen()
                 }
             }
         }
@@ -32,5 +33,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
 //    HomeScreen()
-    LoginScreen()
+//    LoginScreen()
+//    MyQuizzesScreen()
+    AddQuizScreen()
 }
