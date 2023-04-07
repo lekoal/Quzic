@@ -12,4 +12,6 @@
     <string name="enter_button_text">Войти</string>
     <string name="registration_button_text">Регистрация</string>
     <string name="my_quizzes_title">Мои квизы</string>
+    <string name="registration_title">Регистрация</string>
+    <string name="register_button_text">Зарегистрироваться</string>
 </resources>

@@ -120,7 +120,7 @@ fun MyQuizzesScreen(navController: NavController) {
             shape = CutCornerShape(15.dp),
             elevation = FloatingActionButtonDefaults.elevation(5.dp),
             onClick = {
-                navController.navigate("second_screen") {
+                navController.navigate("login_screen") {
                     popUpTo("first_screen")
                 }
             }

@@ -9,6 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import com.private_projects.quzic.ui.theme.QuzicTheme
 import com.private_projects.quzic.utils.ScreenNavigation
 
@@ -24,6 +25,7 @@ class MainActivity : ComponentActivity() {
 //                    HomeScreen()
 //                    LoginScreen()
 //                    MyQuizzesScreen()
+//                    RegistrationScreen()
                     ScreenNavigation()
                 }
             }
@@ -38,5 +40,6 @@ fun DefaultPreview() {
 //    LoginScreen()
 //    MyQuizzesScreen()
 //    AddQuizScreen()
-    ScreenNavigation()
+//    ScreenNavigation()
+//    RegistrationScreen()
 }

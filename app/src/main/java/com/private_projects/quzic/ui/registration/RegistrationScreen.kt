@@ -1,6 +1,5 @@
-package com.private_projects.quzic.ui
+package com.private_projects.quzic.ui.registration
 
-import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -18,10 +17,16 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.private_projects.quzic.R
+import org.koin.androidx.compose.getKoin
+import org.koin.core.qualifier.named
+
+private const val REG_SCOPE_ID = "registration_scope_id"
 
 @Composable
-fun LoginScreen(navController: NavController) {
+fun RegistrationScreen(navController: NavController) {
     val typography = MaterialTheme.typography
+    val scope = getKoin().getOrCreateScope<RegistrationVewModel>(REG_SCOPE_ID)
+    val viewModel: RegistrationVewModel = scope.get(named("registration_view_model"))
     var userName by remember {
         mutableStateOf("")
     }
@@ -41,7 +46,7 @@ fun LoginScreen(navController: NavController) {
     val context = LocalContext.current
     Column(modifier = mainColumnModifier) {
         Text(
-            text = stringResource(R.string.system_enter_title), style = typography.headlineLarge
+            text = stringResource(R.string.registration_title), style = typography.headlineLarge
         )
         Spacer(modifier = Modifier.height(60.dp))
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -95,33 +100,12 @@ fun LoginScreen(navController: NavController) {
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
             OutlinedButton(
                 onClick = {
-                    Toast.makeText(context, "ENTER!", Toast.LENGTH_SHORT).show()
+                    viewModel.addUser(userName, userPassword)
                 },
                 shape = RoundedCornerShape(8.dp)
             ) {
                 Text(
-                    text = stringResource(R.string.enter_button_text),
-                    style = typography.titleLarge
-                )
-            }
-        }
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .fillMaxHeight(),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.Bottom
-        ) {
-            OutlinedButton(
-                onClick = {
-                    navController.navigate("registration_screen") {
-                        popUpTo("first_screen")
-                    }
-                },
-                shape = RoundedCornerShape(8.dp)
-            ) {
-                Text(
-                    text = stringResource(R.string.registration_button_text),
+                    text = stringResource(R.string.register_button_text),
                     style = typography.titleLarge
                 )
             }
