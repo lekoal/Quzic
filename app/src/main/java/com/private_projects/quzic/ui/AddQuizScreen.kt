@@ -1,19 +1,18 @@
 package com.private_projects.quzic.ui
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import com.private_projects.quzic.ui.theme.Yellow900
+import androidx.navigation.NavController
+import com.private_projects.quzic.ui.theme.Pink40
 
 @Composable
-fun AddQuizScreen() {
-    Box(modifier = Modifier
+fun AddQuizScreen(navController: NavController) {
+    Column(modifier = Modifier
         .fillMaxSize()
-        .background(color = Yellow900)
-        .alpha(0.2F)
+        .background(color = Pink40)
     ) {
 
     }

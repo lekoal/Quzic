@@ -20,11 +20,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.private_projects.quzic.R
 import com.private_projects.quzic.ui.theme.*
 
 @Composable
-fun MyQuizzesScreen() {
+fun MyQuizzesScreen(navController: NavController) {
     val typography = MaterialTheme.typography
     val context = LocalContext.current
     val mainColumnModifier = Modifier
@@ -119,7 +120,9 @@ fun MyQuizzesScreen() {
             shape = CutCornerShape(15.dp),
             elevation = FloatingActionButtonDefaults.elevation(5.dp),
             onClick = {
-                Toast.makeText(context, "ADD QUIZ", Toast.LENGTH_SHORT).show()
+                navController.navigate("second_screen") {
+                    popUpTo("first_screen")
+                }
             }
         ) {
             Icon(painter = painterResource(R.drawable.baseline_add_24), contentDescription = null)

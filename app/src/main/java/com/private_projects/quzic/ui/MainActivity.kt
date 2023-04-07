@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.private_projects.quzic.ui.theme.QuzicTheme
+import com.private_projects.quzic.utils.ScreenNavigation
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +23,8 @@ class MainActivity : ComponentActivity() {
                 ) {
 //                    HomeScreen()
 //                    LoginScreen()
-                    MyQuizzesScreen()
+//                    MyQuizzesScreen()
+                    ScreenNavigation()
                 }
             }
         }
@@ -35,5 +37,6 @@ fun DefaultPreview() {
 //    HomeScreen()
 //    LoginScreen()
 //    MyQuizzesScreen()
-    AddQuizScreen()
+//    AddQuizScreen()
+    ScreenNavigation()
 }
