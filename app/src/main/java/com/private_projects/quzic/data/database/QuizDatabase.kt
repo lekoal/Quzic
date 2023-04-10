@@ -12,14 +12,14 @@ import com.private_projects.quzic.data.dao.UserDao
 import com.private_projects.quzic.data.entities.QuestionEntity
 import com.private_projects.quzic.data.entities.QuizEntity
 import com.private_projects.quzic.data.entities.UserEntity
-import com.private_projects.quzic.utils.json.QuestionConverter
+import com.private_projects.quzic.utils.json.QuestionsConverter
 import com.private_projects.quzic.utils.json.QuizzesConverter
 
 @Database(
     entities = [UserEntity::class, QuizEntity::class, QuestionEntity::class],
     version = 1
 )
-@TypeConverters(QuizzesConverter::class, QuestionConverter::class)
+@TypeConverters(QuestionsConverter::class, QuizzesConverter::class)
 abstract class QuizDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract fun quizDao(): QuizDao

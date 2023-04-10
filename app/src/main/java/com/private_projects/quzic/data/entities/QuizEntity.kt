@@ -1,7 +1,7 @@
 package com.private_projects.quzic.data.entities
 
 import androidx.room.*
-import com.private_projects.quzic.utils.json.QuestionConverter
+import com.private_projects.quzic.utils.json.QuestionsConverter
 
 @Entity(
     tableName = "quiz",
@@ -21,7 +21,7 @@ data class QuizEntity(
     @ColumnInfo(name = "name")
     val name: String,
     @ColumnInfo(name = "questions")
-    @TypeConverters(QuestionConverter::class)
+    @TypeConverters(QuestionsConverter::class)
     val questions: List<QuestionEntity>?,
     @ColumnInfo(name = "time")
     val time: Int?

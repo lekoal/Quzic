@@ -2,19 +2,26 @@ package com.private_projects.quzic.utils.json
 
 import androidx.room.TypeConverter
 import com.private_projects.quzic.data.entities.QuestionEntity
+import com.squareup.moshi.FromJson
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.ToJson
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
-class QuestionConverter {
-    private val moshi = Moshi.Builder().build()
-    private val adapter = moshi.adapter(QuestionEntity::class.java)
+class QuestionsConverter {
+    private val moshi = Moshi.Builder()
+        .add(KotlinJsonAdapterFactory())
+        .build()
+    private val adapter = ListJsonAdapter(moshi.adapter(QuestionEntity::class.java))
 
     @TypeConverter
-    fun fromQuestion(question: QuestionEntity): String {
-        return adapter.toJson(question)
+    @ToJson
+    fun toJson(question: List<QuestionEntity>?): String? {
+        return adapter.toJson(question) ?: null
     }
 
     @TypeConverter
-    fun toQuestion(questionString: String): QuestionEntity {
-        return adapter.fromJson(questionString)!!
+    @FromJson
+    fun fromJson(questionString: String): List<QuestionEntity>? {
+        return adapter.fromJson(questionString)
     }
 }

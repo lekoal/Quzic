@@ -17,6 +17,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.private_projects.quzic.R
+import kotlinx.coroutines.flow.Flow
 import org.koin.androidx.compose.getKoin
 import org.koin.core.qualifier.named
 
@@ -44,6 +45,7 @@ fun RegistrationScreen(navController: NavController) {
         .fillMaxHeight()
         .padding(horizontal = 10.dp, vertical = 30.dp)
     val context = LocalContext.current
+
     Column(modifier = mainColumnModifier) {
         Text(
             text = stringResource(R.string.registration_title), style = typography.headlineLarge
@@ -101,6 +103,7 @@ fun RegistrationScreen(navController: NavController) {
             OutlinedButton(
                 onClick = {
                     viewModel.addUser(userName, userPassword)
+                    viewModel.saveUserData(context, userName, userPassword)
                 },
                 shape = RoundedCornerShape(8.dp)
             ) {
@@ -109,6 +112,14 @@ fun RegistrationScreen(navController: NavController) {
                     style = typography.titleLarge
                 )
             }
+        }
+    }
+    val userDataFlow: Flow<Set<String>> = viewModel.getUserData(context)
+    val userDataState: Set<String> by userDataFlow.collectAsState(initial = setOf())
+    userDataState.let {
+        if (it.isNotEmpty() && it.first() != "") {
+            userName = it.first()
+            userPassword = it.last()
         }
     }
 }
